@@ -62,7 +62,7 @@ public class ControladoraPersistencia {
         return empleado;
         
     }
-    //mdetodos de cliente
+    //metodos de cliente
     public void crearCliente(Cliente cliente){
         clienteJpa.create(cliente);    
     }
@@ -175,7 +175,7 @@ public class ControladoraPersistencia {
             Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public List<Juego> trearJuegos(){
+    public List<Juego> traerJuegos(){
         List<Juego> juegos=juegoJpa.findJuegoEntities();
         return juegos;
     }
@@ -209,7 +209,7 @@ public class ControladoraPersistencia {
         List<Usuario> usuarios= usuarioJpa.findUsuarioEntities();
         return usuarios;
     }
-    public Usuario trearUsuario(int id){
+    public Usuario traerUsuario(int id){
         Usuario usuario= usuarioJpa.findUsuario(id);
         return usuario;
     }
