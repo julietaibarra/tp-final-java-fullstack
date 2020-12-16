@@ -17,21 +17,42 @@ import javax.persistence.Id;
  * @author Julieta
  */
 @Entity
-public class Cliente extends Persona implements Serializable{
+public class Cliente implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int idCliente;
     @Basic
+    private String nombre;
+    private String apellido;
     private int edad;
 
     public Cliente() {
     }
 
-    public Cliente( int edad, String dni, String nombre, String apellido) {
-        super(dni, nombre, apellido);
-     
+    public Cliente(int idCliente, String nombre, String apellido, int edad) {
+        this.idCliente = idCliente;
+        this.nombre = nombre;
+        this.apellido = apellido;
         this.edad = edad;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+   
 
     public int getIdCliente() {
         return idCliente;

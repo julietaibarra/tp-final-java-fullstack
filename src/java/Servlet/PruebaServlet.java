@@ -5,6 +5,9 @@
  */
 package Servlet;
 
+import Logica.Controladora;
+import Logica.Empleado;
+import Logica.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -32,47 +35,43 @@ public class PruebaServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet PruebaServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet PruebaServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+    
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+   
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        Controladora control= new Controladora();
+       String nombre= request.getParameter("nombre");
+       String apellido= request.getParameter("apellido");
+       String dni= request.getParameter("dni");
+       String cargo=request.getParameter("cargo");
+       String nombreUsuario=request.getParameter("nombreUsuario");
+       String contrasenia= request.getParameter("contrasenia");
+     
+       Usuario usuario= new Usuario();
+       usuario.setNombre_usuario(nombreUsuario);
+       usuario.setContrasenia(contrasenia);
+       
+       Empleado empleado= new Empleado();
+       empleado.setNombre(nombre);
+       empleado.setApellido(apellido);
+       empleado.setDni(dni);
+       empleado.setCargo(cargo);
+       empleado.setUnUsuario(usuario);
+       
+       control.crearUsuario(usuario);
+       control.creaEmpleado(empleado);
+       
+       request.getSession().setAttribute("nombre", nombre);
+       request.getSession().setAttribute("apellido", apellido);
+       request.getSession().setAttribute("dni", dni);
+       request.getSession().setAttribute("cargo", cargo);
+       request.getSession().setAttribute("nombreUsuario", nombreUsuario);
+       response.sendRedirect("Confirmacion.jsp");
+      
+  
     }
 
     /**

@@ -19,6 +19,9 @@ public class Controladora {
         empleado.setUnUsuario(usu);
         controlPersis.crearEmpleado(empleado);
     }
+    public void creaEmpleado(Empleado empleado){
+        controlPersis.crearEmpleado(empleado);
+    }
    
     public void eliminarEmpleado(int id){
         controlPersis.eliminarEmpleado(id);
@@ -115,10 +118,8 @@ public class Controladora {
     
     
     //metodos de usuario
-      public void crearUsuario(String nombre, String contrasenia) {
-          Usuario usuario= new Usuario();
-          usuario.setNombre_usuario(nombre);
-          usuario.setContrasenia(contrasenia);
+      public void crearUsuario(Usuario usuario) {
+       
         controlPersis.crearUsuario(usuario);
     }
       

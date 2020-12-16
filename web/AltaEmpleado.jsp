@@ -53,7 +53,7 @@
 
 				</div>
 				<br>
-				<form>
+                                <form action="PruebaServlet" method="POST">
 
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
@@ -76,6 +76,14 @@
 						<input type="text" class="form-control" placeholder="DNI" name="dni">
 
 					</div>
+                                    <div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="text" class="form-control" placeholder="Cargo" name="cargo">
+
+					</div>
+
 
 					<div class="input-group form-group">
 						<div class="input-group-prepend">

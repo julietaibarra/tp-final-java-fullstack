@@ -20,11 +20,16 @@ import javax.persistence.OneToOne;
  * @author Julieta
  */
 @Entity
-public class Empleado extends Persona implements Serializable{
+public class Empleado implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id_empleado;
+    @Basic
+    private String nombre;
+    private String apellido;
+    private String dni;
+    private String cargo;
     @OneToOne
     private Usuario unUsuario;
     
@@ -32,11 +37,48 @@ public class Empleado extends Persona implements Serializable{
     public Empleado() {
     }
 
-    public Empleado(int id_empleado, Usuario unUsuario, String dni, String nombre, String apellido) {
-        super(dni, nombre, apellido);
+    public Empleado(int id_empleado, String nombre, String apellido, String dni, String cargo, Usuario unUsuario) {
         this.id_empleado = id_empleado;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.cargo = cargo;
         this.unUsuario = unUsuario;
     }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+
+  
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
  
    
 
