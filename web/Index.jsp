@@ -28,7 +28,18 @@
 <br>
 
 </head>
-<body background="parque.png">
+<body background="img/parque.png">
+    
+    
+    <%
+    HttpSession miSession= request.getSession();
+    String usuario= (String) miSession.getAttribute("nombreUsuario");
+    
+    if(usuario ==null){
+        response.sendRedirect("SinUsuario.jsp");
+    }else{
+        %>
+    
 
 
 	<header>
@@ -64,13 +75,15 @@
 
 				<h3>La calesita</h3>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi inventore dolorem accusantium assumenda pariatur esse deserunt accusamus, deleniti. Molestias harum totam nulla a asperiores vero ipsa corrupti cum, consectetur eligendi!</p>
-				<img src="parque-atracciones.jpg" class="img-fluid" alt="Responsive image">
+				<img src="img/parque-atracciones.jpg" class="img-fluid" alt="Responsive image">
 
 			</div>
 			
 		</div>
 	</div>
 </div>
+        <% }
+%>
 </body>
 </html>
 

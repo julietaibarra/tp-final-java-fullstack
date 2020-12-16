@@ -18,7 +18,7 @@
 <br>
 
 </head>
-<body background="parque.png">
+<body background="img/parque.png">
 
 
 	<header>
@@ -49,7 +49,7 @@
 			</div>
 			<div class="card-body">
 				<div class="text-center">
-				<image src="usuario.png" alt="Responsive image" class="rounded" width="100" height="102">
+				<image src="img/usuario.png" alt="Responsive image" class="rounded" width="100" height="102">
 
 				</div>
 				<br>

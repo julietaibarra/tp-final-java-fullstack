@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Logica/Cliente.java</file>
             <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Persistencia/ClienteJpaController.java</file>
             <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Persistencia/ControladoraPersistencia.java</file>
             <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Logica/Entrada.java</file>
@@ -12,12 +13,13 @@
             <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Logica/Empleado.java</file>
             <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Persistencia/EmpleadoJpaController.java</file>
             <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/web/AltaEmpleado.jsp</file>
+            <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/web/Confirmacion.jsp</file>
             <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Persistencia/UsuarioJpaController.java</file>
-            <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Logica/Persona.java</file>
             <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Persistencia/HorarioJpaController.java</file>
             <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Logica/Controladora.java</file>
             <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Logica/Juego.java</file>
             <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/web/Login.jsp</file>
+            <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Servlet/ServletLogin.java</file>
             <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Persistencia/JuegoJpaController.java</file>
             <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Persistencia/EntradaJpaController.java</file>
             <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Servlet/PruebaServlet.java</file>

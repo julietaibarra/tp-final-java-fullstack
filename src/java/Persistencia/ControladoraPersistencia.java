@@ -213,5 +213,9 @@ public class ControladoraPersistencia {
         Usuario usuario= usuarioJpa.findUsuario(id);
         return usuario;
     }
+
+    public List<Usuario> getUsuarios() {
+        return usuarioJpa.findUsuarioEntities();
+    }
     
 }

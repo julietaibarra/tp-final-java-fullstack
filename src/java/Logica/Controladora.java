@@ -2,6 +2,7 @@
 package Logica;
 
 import Persistencia.ControladoraPersistencia;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -140,4 +141,21 @@ public class Controladora {
            return controlPersis.traerUsuario(id);
                    
        }
+
+    public boolean comprobarIngreso(String nombreUsuario, String contrasenia) {
+        boolean ret=false;
+        List<Usuario> usuarios=new ArrayList<Usuario>();
+        
+        usuarios=controlPersis.getUsuarios();
+        
+        for (Usuario usuario : usuarios) {
+            if (usuario.getNombre_usuario().equals(nombreUsuario)&&
+                    usuario.getContrasenia().equals(contrasenia)) {
+                ret=true;
+                return ret;
+            }
+            
+        }
+        return ret;
+    }
 }

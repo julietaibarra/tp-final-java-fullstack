@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 <br>
 </head>
-<body background="parque.png">
+<body background="img/parque.png">
 
 
 	<header>
@@ -44,19 +44,19 @@
 				
 			</div>
 			<div class="card-body">
-				<form>
+                            <form action="ServletLogin" method="POST">
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="username">
+                                            <input type="text" class="form-control" placeholder="username" name="nombreUsuario">
 
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" class="form-control" placeholder="password">
+                                            <input type="password" class="form-control" placeholder="password" name="contrasenia">
 					</div>
 					<div class="row align-items-center remember">
 						<input type="checkbox">Remember Me
