@@ -4,6 +4,10 @@
     Author     : Julieta
 --%>
 
+<%@page import="Logica.Empleado"%>
+<%@page import="java.util.List"%>
+<%@page import="Logica.Usuario"%>
+<%@page import="Logica.Controladora"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!DOCTYPE html>
@@ -29,9 +33,8 @@
 
 </head>
 <body background="img/parque.png">
-    
-    
-    <%
+ 
+     <%
     HttpSession miSession= request.getSession();
     String usuario= (String) miSession.getAttribute("nombreUsuario");
 
@@ -41,8 +44,6 @@
     }else{
         %>
     
-
-
 	<header>
 		<nav class="navbar navbar-dark bg-dark  navbar-expand-sm justify-content-between" style="background-color: #e3f2fd;">
 
@@ -69,7 +70,7 @@
       <a class="dropdown-item" href="BajaEmpleado.jsp">Baja</a>
       <a class="dropdown-item" href="ModificacionEmpleado.jsp">Modificacion</a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="MostrarEmpleados.jsp">Lista de empleados</a>
+      <a class="dropdown-item" href="#">Lista de empleados</a>
     </div>
   </li>
 							
@@ -117,27 +118,53 @@
 	<div class="d-flex justify-content-center h-100">
 		<div class="card text-white bg-dark">
 				<div class="card-header">
-				<h1>Bienvenido al Parque de diversiones Alegria</h1>
+				<h1>Datos de los empleados</h1>
 				
 		
 			</div>
-			<div class="card-header">
-				<h2>Nuestros juegos mas populares</h2>
+			<div class="card-body">
+                            <table class="table table-hover table-dark" name="tabla">
+  <thead>
+    <tr>
+    <th  scope="col">ID</th>
+    <th scope="col">DNI</th>
+    <th scope="col">Apellido</th>
+    <th scope="col">Nombre</th>
+    <th scope="col">Cargo</th>
+    <th scope="col">Nombre de usuario</th>
 
-				<h3>La montania Rusa</h3>
-				<p>Lorem ipsum, dolor sit amet consectetur, adipisicing elit. Excepturi voluptatibus, reprehenderit rem adipisci totam ducimus incidunt suscipit ipsam, soluta veritatis quas, non sequi saepe quidem. Soluta nemo at aliquid, ipsam.</p>
+  </tr>
+  </thead>
+      <tbody>
+                    <tr>
+                        <%
+                miSession= request.getSession();
+		Controladora control = (Controladora)miSession.getAttribute("control");
 
-				<h3>La calesita</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi inventore dolorem accusantium assumenda pariatur esse deserunt accusamus, deleniti. Molestias harum totam nulla a asperiores vero ipsa corrupti cum, consectetur eligendi!</p>
-				<img src="img/parque-atracciones.jpg" class="img-fluid" alt="Responsive image">
-
+                List<Empleado> empleados=control.traerEmpleados();
+                   for (Empleado empleado: empleados) {
+                       
+                %>
+                      <td><%=empleado.getId_empleado()%></td>
+                      <td><%=empleado.getDni()%></td>
+                      <td><%=empleado.getApellido()%></td>
+                       <td><%=empleado.getNombre()%></td>
+                       <td><%=empleado.getCargo()%></td>
+                       <td><%=empleado.getUnUsuario().getNombre_usuario()%></td>
+                      
+                    </tr>
+                                       
+                      <% } %>
+                  </tbody>
+                </table>
+				
 			</div>
 			
 		</div>
 	</div>
 </div>
-        <%  }
-%>
+   <% } %>                
+ 
 </body>
 </html>
 

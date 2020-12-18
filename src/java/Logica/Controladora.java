@@ -146,7 +146,7 @@ public class Controladora {
         boolean ret=false;
         List<Usuario> usuarios=new ArrayList<Usuario>();
         
-        usuarios=controlPersis.getUsuarios();
+        usuarios=controlPersis.traerUsuarios();
         
         for (Usuario usuario : usuarios) {
             if (usuario.getNombre_usuario().equals(nombreUsuario)&&

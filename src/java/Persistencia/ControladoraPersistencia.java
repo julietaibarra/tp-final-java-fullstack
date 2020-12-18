@@ -214,8 +214,8 @@ public class ControladoraPersistencia {
         return usuario;
     }
 
-    public List<Usuario> getUsuarios() {
-        return usuarioJpa.findUsuarioEntities();
-    }
+//    public List<Usuario> getUsuarios() {
+//        return usuarioJpa.findUsuarioEntities();
+//    }
     
 }

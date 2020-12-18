@@ -56,6 +56,7 @@ public class ServletLogin extends HttpServlet {
              miSession = request.getSession();
              miSession.setAttribute("nombreUsuario", nombreUsuario);
              miSession.setAttribute("contrasenia", contrasenia);
+             miSession.setAttribute("control", control);
              response.sendRedirect("Index.jsp");
         }else{
              response.sendRedirect("LonginError.jsp");

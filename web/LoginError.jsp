@@ -52,10 +52,10 @@
 		<div class="card text-white bg-dark">
 			<div class="card-header">
 				<h1>ERROR</h1>
-				<h3>El DNI ya se encuentra en la base de datos</h3>
+				<h3>Usuario no encontrado.</h3>
 				
 			</div>
-                    <form action="Login.jsp" method="POST">
+                <form action="Login.jsp" method="POST">
                         <div class="card-body">
                           <button class="btn btn-primary" type="submit" name="Cancelar" formaction="Login.jsp">Volver a login</button>
 			</div>

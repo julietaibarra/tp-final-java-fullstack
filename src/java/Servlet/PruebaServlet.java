@@ -73,7 +73,7 @@ public class PruebaServlet extends HttpServlet {
        request.getSession().setAttribute("nombreUsuario", nombreUsuario);
        response.sendRedirect("Confirmacion.jsp");
       }else{
-          response.sendRedirect("Confirmacion.jsp");
+          response.sendRedirect("ErrorAlta.jsp");
       }
       
   

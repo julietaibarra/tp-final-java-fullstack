@@ -5,27 +5,36 @@
         <group>
             <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Logica/Cliente.java</file>
             <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Persistencia/ClienteJpaController.java</file>
-            <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Persistencia/ControladoraPersistencia.java</file>
-            <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Logica/Entrada.java</file>
             <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Logica/Usuario.java</file>
-            <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/conf/persistence.xml</file>
             <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/web/Index.jsp</file>
+            <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Persistencia/EmpleadoJpaController.java</file>
+            <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/web/ErrorAlta.jsp</file>
+            <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/web/AltaEmpleado.jsp</file>
+            <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/web/LonginError.jsp</file>
+            <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/web/EdicionConfirmacion.jsp</file>
+            <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Persistencia/UsuarioJpaController.java</file>
+            <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/web/BajaEmpleado.jsp</file>
+            <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Servlet/ServletLogin.java</file>
+            <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Logica/Horario.java</file>
+            <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Persistencia/ControladoraPersistencia.java</file>
+            <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/web/BajaConfirmacion.jsp</file>
+            <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Logica/Entrada.java</file>
+            <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/conf/persistence.xml</file>
             <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Logica/Empleado.java</file>
             <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/web/SinUsuario.jsp</file>
-            <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Persistencia/EmpleadoJpaController.java</file>
-            <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/web/AltaEmpleado.jsp</file>
+            <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Servlet/ServletBajaEmpleado.java</file>
+            <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Servlet/ServletEdicionEmpleado.java</file>
             <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/web/Confirmacion.jsp</file>
-            <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/web/LonginError.jsp</file>
-            <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Persistencia/UsuarioJpaController.java</file>
+            <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/web/ModificacionEmpleado.jsp</file>
+            <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/web/EdicionEmpleado.jsp</file>
             <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Persistencia/HorarioJpaController.java</file>
             <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Logica/Controladora.java</file>
+            <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Servlet/ServletModificacionEmpleado.java</file>
             <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Logica/Juego.java</file>
             <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/web/Login.jsp</file>
-            <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Servlet/ServletLogin.java</file>
             <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Persistencia/JuegoJpaController.java</file>
             <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Persistencia/EntradaJpaController.java</file>
             <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Servlet/PruebaServlet.java</file>
-            <file>file:/C:/Users/Julieta/Documents/NetBeansProjects/TP-Final-com2-IbarraJulieta/src/java/Logica/Horario.java</file>
         </group>
     </open-files>
 </project-private>
