@@ -34,8 +34,9 @@
     <%
     HttpSession miSession= request.getSession();
     String usuario= (String) miSession.getAttribute("nombreUsuario");
+
     
-    if(usuario ==null){
+    if(usuario==null){
         response.sendRedirect("SinUsuario.jsp");
     }else{
         %>
@@ -45,15 +46,68 @@
 	<header>
 		<nav class="navbar navbar-dark bg-dark  navbar-expand-sm justify-content-between" style="background-color: #e3f2fd;">
 
-							<!--  <img src="img/rueda.png" width="125" height="90" class="d-inline-block align-top" alt="" loading="lazy"> -->
-							 <ul class="navbar-nav">
-								 <li class="nav-item">  <a class="nav-link active" href="Index.jsp">Inicio</a> </li>
-								 <li class="nav-item">  <a class="nav-link" href="Login.jsp">Login</a> </li>
-                                                                 <li class="nav-item">  <a class="nav-link" href="AltaEmpleado.jsp">Alta</a> </li>
-								 <li class="nav-item">  <a class="nav-link"  href="BuyTicket.jsp">Comprar entradas</a> </li>
+							<!--  <img src="img/rueda.png" width="125" height="90" class="d-inline-block align-top" alt="" loading="lazy"> loading="lazy"> -->
+						 <ul class="navbar-nav">
+                                          
+				<li class="nav-item dropdown">  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <%= session.getAttribute("nombreUsuario")%></a> 
+                                         <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Datos Personales</a>
+      <a class="dropdown-item" href="#">Editar Usuario</a>
+     
+
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Salir</a>
+      </div>
+                                </li>
+		 					
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+    Empleado</a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="AltaEmpleado.jsp">Alta</a>
+      <a class="dropdown-item" href="BajaEmpleado.jsp">Baja</a>
+      <a class="dropdown-item" href="ModificacionEmpleado.jsp">Modificacion</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Lista de empleados</a>
+    </div>
+  </li>
 							
-						
-                                                        </ul>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Juego</a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Alta</a>
+      <a class="dropdown-item" href="#">Baja</a>
+      <a class="dropdown-item" href="#">Modificacion</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Lista de Juegos</a>
+    </div>
+  </li>
+
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Horario</a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Alta</a>
+      <a class="dropdown-item" href="#">Baja</a>
+      <a class="dropdown-item" href="#">Modificacion</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Lista de Horarios</a>
+    </div>
+  </li>
+								
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Entradas</a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Compra</a>
+      <a class="dropdown-item" href="#">Total vendidadas</a>
+      <a class="dropdown-item" href="#">Vendiadas por juego</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Vendidas en un dia</a>
+    </div>
+  </li>
+
+
+								 </ul>
 			 </nav>
 	</header>
 	<br>
@@ -82,8 +136,8 @@
 		</div>
 	</div>
 </div>
-        <% }
-%>
+        <%  }
+%>/
 </body>
 </html>
 

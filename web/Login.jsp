@@ -62,7 +62,7 @@
 						<input type="checkbox">Remember Me
 					</div>
 					<div class="form-group">
-						<input type="submit" value="Login" class="btn btn-light">
+						<input type="submit" value="Login" class="btn btn-primary">
 					</div>
 				</form>
 			</div>

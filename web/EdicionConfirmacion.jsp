@@ -85,13 +85,9 @@
 
 	<div class="d-flex justify-content-center h-100">
 		<div class="card text-white bg-dark">
-                    <h1>Datos Cargados</h1>
-                    <h2>Se creo el usuario y la cuenta de :</h2>
-                    <p>Empleado: <%= session.getAttribute("nombre")%> <%= session.getAttribute("apellido")%> </p>
-                    <p>Cargo: <%= session.getAttribute("cargo")%></p>
-                    <p> DNI: <%= session.getAttribute("dni")%></p>
-                    <p>Nombre de usuario: <%= session.getAttribute("nombreUsuario")%></p>
-		
+                    <h1>Datos Editados </h1>
+                    <h2>Se pudo editar las datos correctamente</h2>
+   
 		</div>
 	</div>
 </div>

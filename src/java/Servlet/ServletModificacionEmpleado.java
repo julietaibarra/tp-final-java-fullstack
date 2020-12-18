@@ -20,8 +20,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Julieta
  */
-@WebServlet(name = "PruebaServlet", urlPatterns = {"/PruebaServlet"})
-public class PruebaServlet extends HttpServlet {
+@WebServlet(name = "ServletModificacionEmpleado", urlPatterns = {"/ServletModificacionEmpleado"})
+public class ServletModificacionEmpleado extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,48 +35,35 @@ public class PruebaServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-    
+       
     }
 
-   
+  
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Controladora control= new Controladora();
-       String nombre= request.getParameter("nombre");
-       String apellido= request.getParameter("apellido");
-       String dni= request.getParameter("dni");
-       String cargo=request.getParameter("cargo");
-       String nombreUsuario=request.getParameter("nombreUsuario");
-       String contrasenia= request.getParameter("contrasenia");
+         Controladora control=new Controladora();
+         String dni= request.getParameter("dni");
+         if (control.existeEmpleado(dni)) {
+              int idEmpleado= control.getIdEmpleado(dni);
+              int idUsuario=control.getIdUsuario(idEmpleado);
+              Empleado empleado= control.traerEmpleado(idEmpleado);
+//              Usuario usuario= control.traerUsuario(idUsuario);
+              
+              request.getSession().setAttribute("nombre",empleado.getNombre() );
+              request.getSession().setAttribute("apellido", empleado.getApellido());
+              request.getSession().setAttribute("dni", dni);
+              request.getSession().setAttribute("cargo", empleado.getCargo());
+              request.getSession().setAttribute("id",String.valueOf(idEmpleado));
      
-      if (!control.existeEmpleado(dni)) {
-
-       Usuario usuario= new Usuario();
-       usuario.setNombre_usuario(nombreUsuario);
-       usuario.setContrasenia(contrasenia);
-       
-       Empleado empleado= new Empleado();
-       empleado.setNombre(nombre);
-       empleado.setApellido(apellido);
-       empleado.setDni(dni);
-       empleado.setCargo(cargo);
-       empleado.setUnUsuario(usuario);
-       
-       control.crearUsuario(usuario);
-       control.creaEmpleado(empleado);
-       
-       request.getSession().setAttribute("nombre", nombre);
-       request.getSession().setAttribute("apellido", apellido);
-       request.getSession().setAttribute("dni", dni);
-       request.getSession().setAttribute("cargo", cargo);
-       request.getSession().setAttribute("nombreUsuario", nombreUsuario);
-       response.sendRedirect("Confirmacion.jsp");
-      }else{
-          response.sendRedirect("Confirmacion.jsp");
-      }
-      
-  
+              
+              
+               response.sendRedirect("EdicionEmpleado.jsp");
+ 
+        }else{
+             response.sendRedirect("LoginError.jsp");
+         }
+        
     }
 
     /**

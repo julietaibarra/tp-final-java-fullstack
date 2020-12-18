@@ -13,14 +13,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Julieta
  */
-@WebServlet(name = "ServletLogin", urlPatterns = {"/ServletLogin"})
-public class ServletLogin extends HttpServlet {
+@WebServlet(name = "ServletBajaEmpleado", urlPatterns = {"/ServletBajaEmpleado"})
+public class ServletBajaEmpleado extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,33 +33,26 @@ public class ServletLogin extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+   
     }
 
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       //traigo ususario y contrase;a desde el login
-        String nombreUsuario=request.getParameter("nombreUsuario");
-        String contrasenia=request.getParameter("contrasenia");
-         boolean esta= false;
-         Controladora control= new Controladora();
-         //asigno a mi variable si esta o no
-         esta=control.comprobarIngreso(nombreUsuario, contrasenia);
-         
-         //comprobacion 
-         if (esta) {
-            
-             HttpSession miSession;
-             miSession = request.getSession();
-             miSession.setAttribute("nombreUsuario", nombreUsuario);
-             miSession.setAttribute("contrasenia", contrasenia);
-             response.sendRedirect("Index.jsp");
+        Controladora control=new Controladora();
+         String dni= request.getParameter("dni");
+         if (control.existeEmpleado(dni)) {
+              int idEmpleado= control.getIdEmpleado(dni);
+              int idUsuario=control.getIdUsuario(idEmpleado);
+               control.eliminarEmpleado(idEmpleado);
+               control.eliminarUsuario(idUsuario);
+               response.sendRedirect("BajaConfirmacion.jsp");
+ 
         }else{
-             response.sendRedirect("LonginError.jsp");
+             response.sendRedirect("LoginError.jsp");
          }
-
+  
     }
 
     /**

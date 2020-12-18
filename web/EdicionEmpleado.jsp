@@ -43,8 +43,9 @@
 	<div class="d-flex justify-content-center h-100">
 		<div class="card text-white bg-dark">
 			<div class="card-header">
-				<h1>Alta al sistema</h1>
-				<h3>Sign Up</h3>
+				<h1>Edicion de datos</h1>
+				<h3>Datos del empleado n°</h3>
+                                <p><%= session.getAttribute("id")%></p>
 				
 			</div>
 			<div class="card-body">
@@ -53,72 +54,59 @@
 
 				</div>
 				<br>
-                                <form action="PruebaServlet" method="POST" >
-
+                                <form action="ServletEdicionEmpleado" method="POST" >
+                                  
+                                    <P>Nombre:</P>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-                                            <input type="text" class="form-control" placeholder="Nombre" name="nombre" id="nombre" 
-                                                       title="El nombre no puede ser vacio "value="" required>
+                                            <input type="text" class="form-control" placeholder=" <%= session.getAttribute("nombre")%>" name="nombre" id="nombre" 
+                                                       title="El nombre no puede ser vacio "value="<%= session.getAttribute("nombre")%>" required>
 
 					</div>
+                                        <p>Apellido:</p>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-                                            <input type="text" class="form-control" placeholder="Apellido" name="apellido" id="apellido"
+                                            
+                                            <input type="text" class="form-control" placeholder=" <%= session.getAttribute("apellido")%>" name="apellido" id="apellido"
                                                       
-                                                       title="El apellido no puede ser vacio "value="" required>
+                                                       title="El apellido no puede ser vacio "value="<%= session.getAttribute("apellido")%>" required>
 
 					</div>
+                                            <p>DNI:</p>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-                                            <input type="text" class="form-control" placeholder="DNI" name="dni" id="dni "pattern="^[0-9]{8}$" title= "El dni debe tener 8 numeros" value="" required>
+                                            
+                                            <input type="text"  readonly=»readonly» class="form-control" placeholder=" <%= session.getAttribute("dni")%>" name="dni" id="dni "pattern="^[0-9]{8}$" title= "El dni debe tener 8 numeros" value="<%= session.getAttribute("dni")%>" required>
 
 					</div>
+                                          <P>Cargo:</P>
                                     <div class="input-group form-group">
+                                        
 						<div class="input-group-prepend">
+                                                   
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="Cargo" name="cargo" placeholder="cargo" id="cargo"  title="El cargo no puede ser vacio "value="" required>
+                                                
+						<input type="text" class="form-control" placeholder=" <%= session.getAttribute("cargo")%>" name="cargo" placeholder="cargo" id="cargo"  title="El cargo no puede ser vacio "value="<%= session.getAttribute("cargo")%>" required>
 
 					</div>
 
 
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-user"></i></span>
-						</div>
-                                            <input type="text" class="form-control" placeholder="Nombre de usuario" name="nombreUsuario" id="nombreUsuario"
-                                                    title="El Usuario no puede ser vacio "value="" required>
-
-					</div>
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-key"></i></span>
-						</div>
-                                            <input type="password" class="form-control" placeholder="Password" name="contrasenia" id="contrasenia"  title="La contraseña no puede ser vacio "value="" required>
-					</div>
-					<div class="row align-items-center remember">
-						<input type="checkbox">Remember Me
-					</div>
+	
 					<div class="form-group">
-						<input type="submit" value="Login" class="btn btn-primary">
+						<input type="submit" value="Editar" class="btn btn-primary">
+                                              <button class="btn btn-primary" type="submit" name="Cancelar" formaction="modificar.html">Cancelar</button>
 					</div>
 				</form>
 
 			</div>
-			<div class="card-footer">
-				<div class="d-flex justify-content-center links">
-					Don't have an account?<a href="#">Sign Up</a>
-				</div>
-				<div class="d-flex justify-content-center">
-					<a href="#">Forgot your password?</a>
-				</div>
-			</div>
+			
 		</div>
 	</div>
 </div>

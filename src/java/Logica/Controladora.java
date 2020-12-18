@@ -152,10 +152,40 @@ public class Controladora {
             if (usuario.getNombre_usuario().equals(nombreUsuario)&&
                     usuario.getContrasenia().equals(contrasenia)) {
                 ret=true;
+                
                 return ret;
             }
             
         }
         return ret;
+    }
+
+    public int getIdEmpleado(String dni) {
+        List<Empleado> empleados= controlPersis.traerEmpleados();
+        int id=0;
+        for (Empleado empleado : empleados) {
+            if (empleado.getDni().equals(dni)) {
+                id=empleado.getId_empleado();
+                
+            }
+            
+        }
+        return id;
+    }
+    
+    public boolean existeEmpleado(String dni){
+        List<Empleado> empleados= controlPersis.traerEmpleados();
+        for (Empleado empleado : empleados) {
+             if (empleado.getDni().equals(dni)) {
+              return true;
+                
+            } 
+        }
+        return false;
+    }
+
+    public int getIdUsuario(int idEmpleado) {
+       Empleado empleado= controlPersis.traerEmpleado(idEmpleado);
+        return empleado.getUnUsuario().getId_usuario();
     }
 }
