@@ -38,7 +38,7 @@
 						 <ul class="navbar-nav">
                                                               
 								 <li class="nav-item">  <a class="nav-link" href="Login.jsp">Login</a> </li>
-								 <li class="nav-item">  <a class="nav-link"  href="BuyTicket.jsp">Comprar entradas</a> </li>
+								 <!--<li class="nav-item">  <a class="nav-link"  href="BuyTicket.jsp">Comprar entradas</a> </li>-->
 							
 								 </ul>
 			 </nav>

@@ -59,7 +59,10 @@
      
 
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">Salir</a>
+      <!--<a class="dropdown-item" href="#">Salir</a>-->
+       <form name="salir" action="ServletCerrarSession" method="POST">
+         <input type="submit" value="Salir" class="btn btn-primary">
+      </form>
       </div>
                                 </li>
 		 					
@@ -144,10 +147,11 @@
                 List<Horario> horarios=control.traerHorarios();
                    for (Horario horario: horarios) {
                       
+                      
                 %>
                       <td><%=horario.getId_horario()%></td>
-                      <td><%=horario.getHora_inicio()%></td>
-                      <td><%=horario.getHora_fin()%></td>
+                      <td><%=control.DateAString(horario.getHora_inicio())%></td>
+                      <td><%=control.DateAString(horario.getHora_fin())%></td>
                        <td><%=horario.getDia()%></td>
                
                     </tr>

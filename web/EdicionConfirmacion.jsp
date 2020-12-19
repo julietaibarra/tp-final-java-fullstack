@@ -26,18 +26,33 @@
 	<header>
 		<nav class="navbar navbar-dark bg-dark  navbar-expand-sm justify-content-between" style="background-color: #e3f2fd;">
 
-							<!--  <img src="img/rueda.png" width="125" height="90" class="d-inline-block align-top" alt="" loading="lazy"> -->
+							<!--  <img src="img/rueda.png" width="125" height="90" class="d-inline-block align-top" alt="" loading="lazy"> loading="lazy"> -->
 						 <ul class="navbar-nav">
-								 <li class="nav-item">  <a class="nav-link active" href="index.html">Inicio</a> </li>
-								
+                                          
+				<li class="nav-item dropdown">  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <%= session.getAttribute("nombreUsuario")%></a> 
+                                         <div class="dropdown-menu">
+      <a class="dropdown-item" href="DatosPersonales.jsp">Datos Personales</a>
+      <a class="dropdown-item" href="EditarDatosPersonales.jsp">Editar Usuario</a>
+     
+
+      <div class="dropdown-divider"></div>
+      <!--<a class="dropdown-item" href="#">Salir</a>-->
+      <form name="salir" action="ServletCerrarSession" method="POST">
+         <input type="submit" value="Salir" class="btn btn-primary">
+      </form>
+      </div>
+                                </li>
+		 					
   <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Empleado</a>
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+    Empleado</a>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="AltaEmpleados.jsp">Alta</a>
-      <a class="dropdown-item" href="BajaEmplaados.jsp">Baja</a>
+      <a class="dropdown-item" href="AltaEmpleado.jsp">Alta</a>
+      <a class="dropdown-item" href="BajaEmpleado.jsp">Baja</a>
       <a class="dropdown-item" href="ModificacionEmpleado.jsp">Modificacion</a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">Datos</a>
+      <a class="dropdown-item" href="MostrarEmpleados.jsp">Lista de empleados</a>
     </div>
   </li>
 							
@@ -48,29 +63,29 @@
       <a class="dropdown-item" href="#">Baja</a>
       <a class="dropdown-item" href="#">Modificacion</a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">Datos</a>
+      <a class="dropdown-item" href="#">Lista de Juegos</a>
     </div>
   </li>
 
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Horario</a>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Alta</a>
-      <a class="dropdown-item" href="#">Baja</a>
+      <a class="dropdown-item" href="AltaHorario.jsp">Alta</a>
+      <a class="dropdown-item" href="BajaHorario.jsp">Baja</a>
       <a class="dropdown-item" href="#">Modificacion</a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">Datos</a>
+      <a class="dropdown-item" href="MostrarHorarios.jsp">Lista de Horarios</a>
     </div>
   </li>
 								
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Entradas</a>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Alta</a>
-      <a class="dropdown-item" href="#">Baja</a>
-      <a class="dropdown-item" href="#">Modificacion</a>
+      <a class="dropdown-item" href="#">Compra</a>
+      <a class="dropdown-item" href="#">Total vendidadas</a>
+      <a class="dropdown-item" href="#">Vendiadas por juego</a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">Datos</a>
+      <a class="dropdown-item" href="#">Vendidas en un dia</a>
     </div>
   </li>
 

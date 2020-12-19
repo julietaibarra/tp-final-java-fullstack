@@ -93,9 +93,13 @@ public class Controladora {
           
                 horaCompleta = formatoHora.parse(horaString);
             
-//        System.out.println("La hora es: " + horaCompleta);
+
       return horaCompleta;
       }
+    public static String DateAString(Date fecha){
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("HH:mm");
+        return formatoFecha.format(fecha);
+    }
     public void eliminarHorario(int id){
         controlPersis.eliminarHorario(id);
     }
@@ -202,4 +206,19 @@ public class Controladora {
        Empleado empleado= controlPersis.traerEmpleado(idEmpleado);
         return empleado.getUnUsuario().getId_usuario();
     }
+    
+//    public Empleado empleadoDeUsuario(String nombreUsuario, String contrasenia){
+//        Empleado emple=new Empleado();
+//        List<Empleado> empelados= traerEmpleados();
+//            for (Empleado empleado : empelados) {
+//                if (empleado.getUnUsuario().getNombre_usuario().equals(nombreUsuario)||
+//                     empleado.getUnUsuario().getNombre_usuario().equals(contrasenia)) {
+//                    emple=empleado;
+////                   break;
+//                }
+//            }
+//
+//        return emple;
+//    }
+    
 }

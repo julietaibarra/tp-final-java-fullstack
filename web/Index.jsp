@@ -52,12 +52,15 @@
 				<li class="nav-item dropdown">  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                         <%= session.getAttribute("nombreUsuario")%></a> 
                                          <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Datos Personales</a>
-      <a class="dropdown-item" href="#">Editar Usuario</a>
+      <a class="dropdown-item" href="DatosPersonales.jsp">Datos Personales</a>
+      <a class="dropdown-item" href="EditarDatosPersonales.jsp">Editar Usuario</a>
      
 
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">Salir</a>
+      <!--<a class="dropdown-item" href="#">Salir</a>-->
+      <form name="salir" action="ServletCerrarSession" method="POST">
+         <input type="submit" value="Salir" class="btn btn-primary">
+      </form>
       </div>
                                 </li>
 		 					

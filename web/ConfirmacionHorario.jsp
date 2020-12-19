@@ -57,7 +57,9 @@
      
 
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">Salir</a>
+       <form name="salir" action="ServletCerrarSession" method="POST">
+         <input type="submit" value="Salir" class="btn btn-primary">
+      </form>
       </div>
                                 </li>
 		 					

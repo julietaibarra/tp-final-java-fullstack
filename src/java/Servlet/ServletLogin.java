@@ -56,6 +56,11 @@ public class ServletLogin extends HttpServlet {
              miSession = request.getSession();
              miSession.setAttribute("nombreUsuario", nombreUsuario);
              miSession.setAttribute("contrasenia", contrasenia);
+//       request.getSession().setAttribute("nombre", nombre);
+//       request.getSession().setAttribute("apellido", apellido);
+//       request.getSession().setAttribute("dni", dni);
+//       request.getSession().setAttribute("cargo", cargo);
+      
              miSession.setAttribute("control", control);
              response.sendRedirect("Index.jsp");
         }else{
