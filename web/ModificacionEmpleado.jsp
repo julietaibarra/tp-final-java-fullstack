@@ -22,7 +22,16 @@
 
 </head>
 <body background="img/parque.png">
+<%
+    HttpSession miSession= request.getSession();
+    String usuario= (String) miSession.getAttribute("nombreUsuario");
 
+    
+    if(usuario==null){
+        response.sendRedirect("SinUsuario.jsp");
+    }else{
+        %>
+    
 
 	<header>
 		<nav class="navbar navbar-dark bg-dark  navbar-expand-sm justify-content-between" style="background-color: #e3f2fd;">
@@ -39,7 +48,7 @@
 			 </nav>
 	</header>
 	<br>
-	<!--Custom styles-->
+	
 	<link rel="stylesheet" type="text/css" href="styles.css">
 <div class="container">
 

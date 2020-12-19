@@ -117,19 +117,12 @@
 	<div class="d-flex justify-content-center h-100">
 		<div class="card text-white bg-dark">
 				<div class="card-header">
-				<h1>Bienvenido al Parque de diversiones Alegria</h1>
+				<h1>Datos de horarios cargados correctamente!!</h1>
 				
 		
 			</div>
 			<div class="card-header">
-				<h2>Nuestros juegos mas populares</h2>
-
-				<h3>La montania Rusa</h3>
-				<p>Lorem ipsum, dolor sit amet consectetur, adipisicing elit. Excepturi voluptatibus, reprehenderit rem adipisci totam ducimus incidunt suscipit ipsam, soluta veritatis quas, non sequi saepe quidem. Soluta nemo at aliquid, ipsam.</p>
-
-				<h3>La calesita</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi inventore dolorem accusantium assumenda pariatur esse deserunt accusamus, deleniti. Molestias harum totam nulla a asperiores vero ipsa corrupti cum, consectetur eligendi!</p>
-				<img src="img/parque-atracciones.jpg" class="img-fluid" alt="Responsive image">
+				
 
 			</div>
 			

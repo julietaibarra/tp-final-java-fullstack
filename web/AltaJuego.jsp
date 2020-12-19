@@ -43,70 +43,67 @@
 	<div class="d-flex justify-content-center h-100">
 		<div class="card text-white bg-dark">
 			<div class="card-header">
-				<h1>Edicion de datos</h1>
-				<h3>Datos del empleado n°</h3>
-                                <p><%= session.getAttribute("id")%></p>
+				<h1>Alta de Juegos al sistema </h1>
+				<h3>Ingrese los datos del nuevo juego</h3>
 				
 			</div>
 			<div class="card-body">
 				<div class="text-center">
-				<image src="img/usuario.png" alt="Responsive image" class="rounded" width="100" height="102">
+				<!--<image src="img/usuario.png" alt="Responsive image" class="rounded" width="100" height="102">-->
 
 				</div>
 				<br>
-                                <form action="ServletEdicionEmpleado" method="POST" >
-                                  
-                                    <P>Nombre:</P>
+                                <form action="AltaJuego" method="POST" >
+
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-                                            <input type="text" class="form-control" placeholder=" <%= session.getAttribute("nombre")%>" name="nombre" id="nombre" 
-                                                       title="El nombre no puede ser vacio "value="<%= session.getAttribute("nombre")%>" required>
+                                            <input type="text" class="form-control" placeholder="Nombre" name="nombre" id="nombre" 
+                                                       title="El nombre no puede ser vacio "value="" required>
 
 					</div>
-                                        <p>Apellido:</p>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-                                            
-                                            <input type="text" class="form-control" placeholder=" <%= session.getAttribute("apellido")%>" name="apellido" id="apellido"
+                                             <input type="number"  min=1  max=30 class="form-control" placeholder="Capacidad" name="capacidad" id="capacidad"
                                                       
-                                                       title="El apellido no puede ser vacio "value="<%= session.getAttribute("apellido")%>" required>
+                                                       title="La capacidad no puede ser vacia "value="" required>
 
 					</div>
-                                            <p>DNI:</p>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-                                            
-                                            <input type="text"  readonly=»readonly» class="form-control" placeholder=" <%= session.getAttribute("dni")%>" name="dni" id="dni "pattern="^[0-9]{8}$" title= "El dni debe tener 8 numeros" value="<%= session.getAttribute("dni")%>" required>
+                                            <input type="text" class="form-control" placeholder="Horario" name="horario" >
+                                            <!--no se si poner un select- option-->
 
 					</div>
-                                          <P>Cargo:</P>
                                     <div class="input-group form-group">
-                                        
 						<div class="input-group-prepend">
-                                                   
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-                                                
-						<input type="text" class="form-control" placeholder=" <%= session.getAttribute("cargo")%>" name="cargo" placeholder="cargo" id="cargo"  title="El cargo no puede ser vacio "value="<%= session.getAttribute("cargo")%>" required>
+						<input type="number"  min=0  max=12 class="form-control" placeholder="Edad minina" name="edadMinima" 
+                                                      
+                                                       title="La capacidad no puede ser vacia "value="" required>
 
 					</div>
-
-
-	
+					
 					<div class="form-group">
-						<input type="submit" value="Editar" class="btn btn-primary">
-                                              <button class="btn btn-primary" type="submit" name="Cancelar" formaction="Index.jsp">Cancelar</button>
+						<input type="submit" value="Login" class="btn btn-primary">
 					</div>
 				</form>
 
 			</div>
-			
+			<div class="card-footer">
+				<div class="d-flex justify-content-center links">
+					Don't have an account?<a href="#">Sign Up</a>
+				</div>
+				<div class="d-flex justify-content-center">
+					<a href="#">Forgot your password?</a>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

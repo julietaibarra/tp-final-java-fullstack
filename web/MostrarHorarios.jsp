@@ -4,6 +4,11 @@
     Author     : Julieta
 --%>
 
+<%@page import="Logica.Horario"%>
+<%@page import="Logica.Empleado"%>
+<%@page import="java.util.List"%>
+<%@page import="Logica.Usuario"%>
+<%@page import="Logica.Controladora"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!DOCTYPE html>
@@ -29,9 +34,8 @@
 
 </head>
 <body background="img/parque.png">
-    
-    
-    <%
+ 
+     <%
     HttpSession miSession= request.getSession();
     String usuario= (String) miSession.getAttribute("nombreUsuario");
 
@@ -41,8 +45,6 @@
     }else{
         %>
     
-
-
 	<header>
 		<nav class="navbar navbar-dark bg-dark  navbar-expand-sm justify-content-between" style="background-color: #e3f2fd;">
 
@@ -91,14 +93,14 @@
       <a class="dropdown-item" href="BajaHorario.jsp">Baja</a>
       <a class="dropdown-item" href="#">Modificacion</a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="MostrarHorarios.jsp">Lista de Horarios</a>
+      <a class="dropdown-item" href="MostrarHorario.jsp">Lista de Horarios</a>
     </div>
   </li>
 								
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Entradas</a>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Compra</a>
+      <a class="dropdown-item" href="AltaEntrada.jsp">Compra</a>
       <a class="dropdown-item" href="#">Total vendidadas</a>
       <a class="dropdown-item" href="#">Vendiadas por juego</a>
       <div class="dropdown-divider"></div>
@@ -117,27 +119,50 @@
 	<div class="d-flex justify-content-center h-100">
 		<div class="card text-white bg-dark">
 				<div class="card-header">
-				<h1>Bienvenido al Parque de diversiones Alegria</h1>
+				<h1>Horarios disponibles</h1>
 				
 		
 			</div>
-			<div class="card-header">
-				<h2>Nuestros juegos mas populares</h2>
+			<div class="card-body">
+                            <table class="table table-hover table-dark" name="tabla">
+  <thead>
+    <tr>
+    <th  scope="col">ID</th>
+    <th scope="col">Hora Inicial</th>
+    <th scope="col">Hora Final</th>
+    <th scope="col">Dia</th>
 
-				<h3>La montania Rusa</h3>
-				<p>Lorem ipsum, dolor sit amet consectetur, adipisicing elit. Excepturi voluptatibus, reprehenderit rem adipisci totam ducimus incidunt suscipit ipsam, soluta veritatis quas, non sequi saepe quidem. Soluta nemo at aliquid, ipsam.</p>
 
-				<h3>La calesita</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi inventore dolorem accusantium assumenda pariatur esse deserunt accusamus, deleniti. Molestias harum totam nulla a asperiores vero ipsa corrupti cum, consectetur eligendi!</p>
-				<img src="img/parque-atracciones.jpg" class="img-fluid" alt="Responsive image">
+  </tr>
+  </thead>
+      <tbody>
+                    <tr>
+                        <%
+                miSession= request.getSession();
+		Controladora control = (Controladora)miSession.getAttribute("control");
 
+                List<Horario> horarios=control.traerHorarios();
+                   for (Horario horario: horarios) {
+                      
+                %>
+                      <td><%=horario.getId_horario()%></td>
+                      <td><%=horario.getHora_inicio()%></td>
+                      <td><%=horario.getHora_fin()%></td>
+                       <td><%=horario.getDia()%></td>
+               
+                    </tr>
+                                       
+                      <% } %>
+                  </tbody>
+                </table>
+				
 			</div>
 			
 		</div>
 	</div>
 </div>
-        <%  }
-%>
+   <% } %>                
+ 
 </body>
 </html>
 

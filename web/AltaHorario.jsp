@@ -15,6 +15,16 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
+    <script type="text/javascript">
+                                                  function controlHorario() {
+                                                  var hrInicio= document.getElementsByName("horaInicio").value;
+                                                  var hrFinal= document.getElementsByName("horaFinal").value;
+                                                  if (hrInicio> hrFinal) {
+                                                        alert("ERROR!! horario de inicio no puede ser mas tarde que el de finalizacion");
+                                                }
+                                             }
+          
+                                    </script>
 <br>
 
 </head>
@@ -43,70 +53,57 @@
 	<div class="d-flex justify-content-center h-100">
 		<div class="card text-white bg-dark">
 			<div class="card-header">
-				<h1>Edicion de datos</h1>
-				<h3>Datos del empleado n°</h3>
-                                <p><%= session.getAttribute("id")%></p>
+				<h1>Alta  de los horarios al sistema</h1>
+				<h3>Ingrese el nuevo horario</h3>
 				
 			</div>
 			<div class="card-body">
 				<div class="text-center">
-				<image src="img/usuario.png" alt="Responsive image" class="rounded" width="100" height="102">
+				<!--<image src="img/usuario.png" alt="Responsive image" class="rounded" width="100" height="102">-->
 
 				</div>
 				<br>
-                                <form action="ServletEdicionEmpleado" method="POST" >
-                                  
-                                    <P>Nombre:</P>
+                                <form action="ServletAltaHorario" method="POST" >
+                                     <P>Hora inicio:</P>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-                                            <input type="text" class="form-control" placeholder=" <%= session.getAttribute("nombre")%>" name="nombre" id="nombre" 
-                                                       title="El nombre no puede ser vacio "value="<%= session.getAttribute("nombre")%>" required>
+                                            <input type="time" name="horaInicio" value="10:00"  id="horaInicio">
 
 					</div>
-                                        <p>Apellido:</p>
+                                      <P>Hora final:</P>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-                                            
-                                            <input type="text" class="form-control" placeholder=" <%= session.getAttribute("apellido")%>" name="apellido" id="apellido"
-                                                      
-                                                       title="El apellido no puede ser vacio "value="<%= session.getAttribute("apellido")%>" required>
+                                            <input type="time" name="horaFinal" value="11:00" id="horaFinal">
+                                          
 
 					</div>
-                                            <p>DNI:</p>
+                                       <P>Día:</P>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-                                            
-                                            <input type="text"  readonly=»readonly» class="form-control" placeholder=" <%= session.getAttribute("dni")%>" name="dni" id="dni "pattern="^[0-9]{8}$" title= "El dni debe tener 8 numeros" value="<%= session.getAttribute("dni")%>" required>
-
+                                           <select name="dia" id=""  title="El  dia no puede ser vacio "value="" required>
+							<option selected="true" disabled="disabled">Seleccione un día</option>
+                                                           <option value="jueves">Jueves</option>
+							  <option value="viernes">Viernes</option>
+							  <option value="sabado">Sábado</option>
+							  <option value="domingo">Domingo</option>
+							  
+						</select>
 					</div>
-                                          <P>Cargo:</P>
-                                    <div class="input-group form-group">
-                                        
-						<div class="input-group-prepend">
-                                                   
-							<span class="input-group-text"><i class="fas fa-user"></i></span>
-						</div>
-                                                
-						<input type="text" class="form-control" placeholder=" <%= session.getAttribute("cargo")%>" name="cargo" placeholder="cargo" id="cargo"  title="El cargo no puede ser vacio "value="<%= session.getAttribute("cargo")%>" required>
-
-					</div>
-
-
-	
+                                 
 					<div class="form-group">
-						<input type="submit" value="Editar" class="btn btn-primary">
-                                              <button class="btn btn-primary" type="submit" name="Cancelar" formaction="Index.jsp">Cancelar</button>
+						<input type="submit" value="Login" onclick="controlHorario()" class="btn btn-primary">
 					</div>
 				</form>
-
 			</div>
+			<div class="card-footer">
 			
+			</div>
 		</div>
 	</div>
 </div>

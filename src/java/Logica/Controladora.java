@@ -2,7 +2,10 @@
 package Logica;
 
 import Persistencia.ControladoraPersistencia;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -82,6 +85,17 @@ public class Controladora {
     public void crearHorario(Horario horario){
         controlPersis.crearHorario(horario);
     }
+    public static Date convertirHoraStringADate (String hora) throws ParseException {
+      
+      String horaString = hora;
+        SimpleDateFormat formatoHora = new SimpleDateFormat("HH:mm");
+        Date horaCompleta = new Date();
+          
+                horaCompleta = formatoHora.parse(horaString);
+            
+//        System.out.println("La hora es: " + horaCompleta);
+      return horaCompleta;
+      }
     public void eliminarHorario(int id){
         controlPersis.eliminarHorario(id);
     }
