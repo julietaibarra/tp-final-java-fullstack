@@ -133,7 +133,7 @@
                    for (Horario horario: horarios) {
                        
                 %>
-                                                                <option value="<%=horario.getId_horario()%>" name="horario" ><%=control.DateAString(horario.getHora_inicio())%>-<%=control.DateAString(horario.getHora_fin())%>, <%=horario.getDia()%> </option>
+                                                                <option value="<%=horario.getId_horario()%>" name="horario" ><%=control.DateAStringHora(horario.getHora_inicio())%>-<%=control.DateAString(horario.getHora_fin())%>, <%=horario.getDia()%> </option>
 
                                                               <% } %>
 							</select>

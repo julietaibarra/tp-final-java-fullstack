@@ -122,7 +122,7 @@
 
 				</div>
 				<br>
-				<form>
+                                <form action="ServletAltaEntrada" method="POST">
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -149,32 +149,31 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-							<select name="juego" id="">
+							<select  name="juego" id="">
                                                                      <%
                 miSession= request.getSession();
 		Controladora control = (Controladora)miSession.getAttribute("control");
-                Horario horario=new Horario();
+               
                 List<Juego> juegos=control.traerJuegos();
                    for (Juego juego: juegos) {
-                       horario=juego.getHorario();
+                       
                 %>
 					   <option value="<%=juego.getIdJuego()%>" name="juego" ><%=juego.getNombre()%></option>
                                                            <% } %> 
 							</select>
 					</div>
-<!--					<div class="input-group form-group">
+					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-                                            <P>el horario disponible es </P>
-                                               <P> <%=control.DateAString(horario.getHora_inicio())%>-<%=control.DateAString(horario.getHora_fin())%>, <%=horario.getDia()%></P>
-					</div>-->
+                                            <input type="time" id="hora" name="hora">
+					</div>
 
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-                                            <input type="date" name="fecha_nac" value="" id="fecha_nac"value="2018-07-22" required="">
+                                            <input type="date" name="fecha" id="fecha"value="2018-07-22" required="">
 					</div>
 					<div class="form-group">
                                             <input type="submit" value="Comprar" class="btn btn-light" required="">
@@ -182,12 +181,11 @@
 				</form>
 			</div>
 
-
-
-		
 		</div>
 	</div>
 </div>
                                                            <% } %>
+                                                           
+                                                         
 </body>
 </html>

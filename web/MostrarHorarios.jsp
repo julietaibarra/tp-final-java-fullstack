@@ -149,8 +149,8 @@
                       
                 %>
                       <td><%=horario.getId_horario()%></td>
-                      <td><%=control.DateAString(horario.getHora_inicio())%></td>
-                      <td><%=control.DateAString(horario.getHora_fin())%></td>
+                      <td><%=control.DateAStringHora(horario.getHora_inicio())%></td>
+                      <td><%=control.DateAStringHora(horario.getHora_fin())%></td>
                        <td><%=horario.getDia()%></td>
                
                     </tr>
