@@ -40,6 +40,9 @@ public class Juego implements Serializable {
     List<Empleado> empleados;
 
     public Juego() {
+        entradasVendidas= new ArrayList<Entrada>();
+        empleados= new ArrayList<Empleado>();
+        
     }
 
     public Juego(String nombre, int edadMinima, Horario horario, List<Empleado> empleados) {

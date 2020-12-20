@@ -12,14 +12,17 @@
    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
+ 
+   
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <br>
 
 </head>
 <body background="img/parque.png">
-
 
 <header>
 		<nav class="navbar navbar-dark bg-dark  navbar-expand-sm justify-content-between" style="background-color: #e3f2fd;">
@@ -30,8 +33,8 @@
 				<li class="nav-item dropdown">  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                         <%= session.getAttribute("nombreUsuario")%></a> 
                                          <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Datos Personales</a>
-      <a class="dropdown-item" href="#">Editar Usuario</a>
+      <a class="dropdown-item" href="DatosPersonales.jsp">Datos Personales</a>
+        <!--<a class="dropdown-item" href="EditarDatosPersonales.jsp">Editar Usuario</a>-->
      
 
       <div class="dropdown-divider"></div>
@@ -56,11 +59,11 @@
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Juego</a>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Alta</a>
-      <a class="dropdown-item" href="#">Baja</a>
+      <a class="dropdown-item" href="AltaJuego.jsp">Alta</a>
+      <a class="dropdown-item" href="BajaJuego.jsp">Baja</a>
       <a class="dropdown-item" href="#">Modificacion</a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">Lista de Juegos</a>
+      <a class="dropdown-item" href="MostrarJuegos.jsp">Lista de Juegos</a>
     </div>
   </li>
 
@@ -78,7 +81,7 @@
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Entradas</a>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Compra</a>
+      <a class="dropdown-item" href="AltaEntrada.jsp">Compra</a>
       <a class="dropdown-item" href="#">Total vendidadas</a>
       <a class="dropdown-item" href="#">Vendiadas por juego</a>
       <div class="dropdown-divider"></div>

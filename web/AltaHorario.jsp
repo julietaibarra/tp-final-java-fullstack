@@ -32,9 +32,18 @@
 <br>
 
 </head>
+
 <body background="img/parque.png">
 
+  <%
+    HttpSession miSession= request.getSession();
+    String usuario= (String) miSession.getAttribute("nombreUsuario");
 
+    
+    if(usuario==null){
+        response.sendRedirect("SinUsuario.jsp");
+    }else{
+        %>
 	<header>
 		<nav class="navbar navbar-dark bg-dark  navbar-expand-sm justify-content-between" style="background-color: #e3f2fd;">
 
@@ -44,8 +53,8 @@
 				<li class="nav-item dropdown">  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                         <%= session.getAttribute("nombreUsuario")%></a> 
                                          <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Datos Personales</a>
-      <a class="dropdown-item" href="#">Editar Usuario</a>
+      <a class="dropdown-item" href="DatosPersonales.jsp">Datos Personales</a>
+       <!--<a class="dropdown-item" href="EditarDatosPersonales.jsp">Editar Usuario</a>-->
      
 
       <div class="dropdown-divider"></div>
@@ -70,11 +79,11 @@
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Juego</a>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Alta</a>
-      <a class="dropdown-item" href="#">Baja</a>
+      <a class="dropdown-item" href="AltaJuego.jsp">Alta</a>
+      <a class="dropdown-item" href="BajaJuego.jsp">Baja</a>
       <a class="dropdown-item" href="#">Modificacion</a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">Lista de Juegos</a>
+      <a class="dropdown-item" href="MostrarJuego">Lista de Juegos</a>
     </div>
   </li>
 
@@ -92,7 +101,7 @@
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Entradas</a>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Compra</a>
+      <a class="dropdown-item" href="AltaEntrada.jsp">Compra</a>
       <a class="dropdown-item" href="#">Total vendidadas</a>
       <a class="dropdown-item" href="#">Vendiadas por juego</a>
       <div class="dropdown-divider"></div>
@@ -103,8 +112,7 @@
 
 								 </ul>
 			 </nav>
-	</header>
-	<br>
+	</header>	<br>
 	<!--Custom styles-->
 	<link rel="stylesheet" type="text/css" href="styles.css">
 <div class="container">
@@ -118,7 +126,7 @@
 			</div>
 			<div class="card-body">
 				<div class="text-center">
-				<!--<image src="img/usuario.png" alt="Responsive image" class="rounded" width="100" height="102">-->
+				<image src="img/horario.png" alt="Responsive image" class="rounded" width="150" height="152">
 
 				</div>
 				<br>
@@ -145,8 +153,8 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-                                           <select name="dia" id=""  title="El  dia no puede ser vacio "value="" required>
-							<option selected="true" disabled="disabled">Seleccione un día</option>
+                                           <select name="dia" id=""  title="El  dia no puede ser vacio" required>
+							<!--<option disabled selected value>>Seleccione un día</option>-->
                                                            <option value="jueves">Jueves</option>
 							  <option value="viernes">Viernes</option>
 							  <option value="sabado">Sábado</option>

@@ -54,12 +54,11 @@
 				<li class="nav-item dropdown">  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                         <%= session.getAttribute("nombreUsuario")%></a> 
                                          <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Datos Personales</a>
-      <a class="dropdown-item" href="#">Editar Usuario</a>
+      <a class="dropdown-item" href="DatosPersonales.jsp">Datos Personales</a>
+       <!--<a class="dropdown-item" href="EditarDatosPersonales.jsp">Editar Usuario</a>-->
      
 
       <div class="dropdown-divider"></div>
-      <!--<a class="dropdown-item" href="#">Salir</a>-->
        <form name="salir" action="ServletCerrarSession" method="POST">
          <input type="submit" value="Salir" class="btn btn-primary">
       </form>
@@ -81,11 +80,11 @@
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Juego</a>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Alta</a>
-      <a class="dropdown-item" href="#">Baja</a>
+      <a class="dropdown-item" href="AltaJuego.jsp">Alta</a>
+      <a class="dropdown-item" href="BajaJuego.jsp">Baja</a>
       <a class="dropdown-item" href="#">Modificacion</a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">Lista de Juegos</a>
+      <a class="dropdown-item" href="MostrarJuegos.jsp">Lista de Juegos</a>
     </div>
   </li>
 
@@ -96,7 +95,7 @@
       <a class="dropdown-item" href="BajaHorario.jsp">Baja</a>
       <a class="dropdown-item" href="#">Modificacion</a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="MostrarHorario.jsp">Lista de Horarios</a>
+      <a class="dropdown-item" href="MostrarHorarios.jsp">Lista de Horarios</a>
     </div>
   </li>
 								

@@ -4,6 +4,10 @@
     Author     : Julieta
 --%>
 
+<%@page import="Logica.Horario"%>
+<%@page import="Logica.Juego"%>
+<%@page import="java.util.List"%>
+<%@page import="Logica.Controladora"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,7 +18,7 @@
 	<script src="js/Validacion.js"></script>
     <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
@@ -23,7 +27,15 @@
 </head>
 <body background="img/parque.png">
 
+  <%
+    HttpSession miSession= request.getSession();
+    String usuario= (String) miSession.getAttribute("nombreUsuario");
 
+    
+    if(usuario==null){
+        response.sendRedirect("SinUsuario.jsp");
+    }else{
+        %>
 	<header>
 		<nav class="navbar navbar-dark bg-dark  navbar-expand-sm justify-content-between" style="background-color: #e3f2fd;">
 
@@ -33,8 +45,8 @@
 				<li class="nav-item dropdown">  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                         <%= session.getAttribute("nombreUsuario")%></a> 
                                          <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Datos Personales</a>
-      <a class="dropdown-item" href="#">Editar Usuario</a>
+      <a class="dropdown-item" href="DatosPersonales.jsp">Datos Personales</a>
+       <!--<a class="dropdown-item" href="EditarDatosPersonales.jsp">Editar Usuario</a>-->
      
 
       <div class="dropdown-divider"></div>
@@ -59,11 +71,11 @@
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Juego</a>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Alta</a>
-      <a class="dropdown-item" href="#">Baja</a>
+      <a class="dropdown-item" href="AltaJuego.jsp">Alta</a>
+      <a class="dropdown-item" href="BajaJuego.jsp">Baja</a>
       <a class="dropdown-item" href="#">Modificacion</a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">Lista de Juegos</a>
+      <a class="dropdown-item" href="MostrarJuegos.jsp">Lista de Juegos</a>
     </div>
   </li>
 
@@ -81,7 +93,7 @@
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Entradas</a>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Compra</a>
+      <a class="dropdown-item" href="AltaEntrada.jsp">Compra</a>
       <a class="dropdown-item" href="#">Total vendidadas</a>
       <a class="dropdown-item" href="#">Vendiadas por juego</a>
       <div class="dropdown-divider"></div>
@@ -94,8 +106,7 @@
 			 </nav>
 	</header>
 	<br>
-	<!--Custom styles-->
-	<link rel="stylesheet" type="text/css" href="styles.css">
+	
 <div class="container">
 	<div class="d-flex  justify-content-center h-100">
 		<div class="card text-white bg-dark">
@@ -116,49 +127,57 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="Nombre">
+						<input type="text" class="form-control" placeholder="Nombre" name="nombre"
+                                                       pattern="([a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁ ÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+[0-9]+['']{0,10,0}){2,20}$">
 
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="input-group-text" class="form-control" placeholder="Apellido">
-					</div>
-					
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-key"></i></span>
-						</div>
-							<select name="juego" id="">
-								<option selected="true" disabled="disabled">seleccione un juego</option>
-							  <option value="volvo">Calecita</option>
-							  <option value="saab">Montania Rusa</option>
-							  <option value="mercedes">La vuelta al mundo</option>
-							  <option value="audi">Tobogan de agua</option>
-							</select>
+                                            <input type="input-group-text" class="form-control" placeholder="Apellido" name="apellido"
+                                                       pattern="([a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁ ÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+[0-9]+['']{0,10,0}){2,20}$">
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
+                                            <input type="input-group-text" class="form-control" placeholder="Edad" name="edad"
+                                                       pattern="([a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁ ÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+[0-9]+['']{0,10,0}){2,20}$">
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
 							<select name="juego" id="">
-								<option selected="true" disabled="disabled">seleccione un Horario</option>
-							  <option value="volvo">13 a 17</option>
-							  <option value="saab">17 a 20 </option>
-							  <option value="mercedes">20 a 23</option>
-							  
+                                                                     <%
+                miSession= request.getSession();
+		Controladora control = (Controladora)miSession.getAttribute("control");
+                Horario horario=new Horario();
+                List<Juego> juegos=control.traerJuegos();
+                   for (Juego juego: juegos) {
+                       horario=juego.getHorario();
+                %>
+					   <option value="<%=juego.getIdJuego()%>" name="juego" ><%=juego.getNombre()%></option>
+                                                           <% } %> 
 							</select>
 					</div>
+<!--					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+                                            <P>el horario disponible es </P>
+                                               <P> <%=control.DateAString(horario.getHora_inicio())%>-<%=control.DateAString(horario.getHora_fin())%>, <%=horario.getDia()%></P>
+					</div>-->
 
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="date" name="fecha_nac" value="" id="fecha_nac"value="2018-07-22">
+                                            <input type="date" name="fecha_nac" value="" id="fecha_nac"value="2018-07-22" required="">
 					</div>
 					<div class="form-group">
-						<input type="submit" value="Comprar" class="btn btn-light">
+                                            <input type="submit" value="Comprar" class="btn btn-light" required="">
 					</div>
 				</form>
 			</div>
@@ -169,5 +188,6 @@
 		</div>
 	</div>
 </div>
+                                                           <% } %>
 </body>
 </html>

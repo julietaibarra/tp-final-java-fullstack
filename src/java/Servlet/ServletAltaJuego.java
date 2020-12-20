@@ -7,9 +7,12 @@ package Servlet;
 
 import Logica.Controladora;
 import Logica.Empleado;
-import Logica.Usuario;
+import Logica.Horario;
+import Logica.Juego;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,8 +23,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Julieta
  */
-@WebServlet(name = "ServletEdicionEmpleado", urlPatterns = {"/ServletEdicionEmpleado"})
-public class ServletEdicionEmpleado extends HttpServlet {
+@WebServlet(name = "ServletAltaJuego", urlPatterns = {"/ServletAltaJuego"})
+public class ServletAltaJuego extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,31 +38,37 @@ public class ServletEdicionEmpleado extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       
+   
     }
 
-  
+ 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Controladora control= new Controladora();
-        String nuevoNombre= request.getParameter("nombre");
-        String nuevoApellido=request.getParameter("apellido");
-        String dni= request.getParameter("dni");
-        String nuevoCargo= request.getParameter("cargo");
-//        String nuevoUsuario=request.getParameter("nombreUsuario");
-//        String nuevaContrasenia=request.getParameter("contrasenia");
-        
-        
-        Empleado empleado= control.traerEmpleado(control.getIdEmpleado(dni));
-        empleado.setNombre(nuevoNombre);
-        empleado.setApellido(nuevoApellido);
-        empleado.setCargo(nuevoCargo);
-       
-        control.modificarEmpleado(empleado);
-//        control.modificarUsuario(usuario);
-         response.sendRedirect("EdicionConfirmacion.jsp");
-        
+           Controladora control= new Controladora();
+           
+           String nombre= request.getParameter("nombre");
+           int capacidad= Integer.parseInt(request.getParameter("capacidad"));
+           int edadMinima= Integer.parseInt(request.getParameter("edadMinima"));
+           Horario horario= control.traerHorario(Integer.parseInt(request.getParameter("horario")));
+           String [] idsEmpleados=request.getParameterValues("empleados[]");
+          
+           
+           List<Empleado> empleados=new ArrayList();
+           for (int i = 0; i < idsEmpleados.length; i++) {
+            String idEmpleado = idsEmpleados[i];
+            Empleado empleado=control.traerEmpleado(Integer.parseInt(idEmpleado));
+            empleados.add(empleado);
+        }
+           
+           Juego juego=new Juego();
+           juego.setNombre(nombre);
+           juego.setCapacidad(capacidad);
+           juego.setHorario(horario);
+           juego.setEmpleados(empleados);
+           juego.setEdadMinima(edadMinima);
+           control.crearJuego(juego);
+           response.sendRedirect("Confirmacion.jsp");
     }
 
     /**

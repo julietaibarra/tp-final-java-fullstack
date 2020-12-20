@@ -10,10 +10,6 @@
 <html>
 <head>
 	<title>Home Page</title>
-	<!-- <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.js"></script>
- -->
 
   <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -42,8 +38,7 @@
         %>
     
 
-
-	<header>
+<header>
 		<nav class="navbar navbar-dark bg-dark  navbar-expand-sm justify-content-between" style="background-color: #e3f2fd;">
 
 							<!--  <img src="img/rueda.png" width="125" height="90" class="d-inline-block align-top" alt="" loading="lazy"> loading="lazy"> -->
@@ -53,12 +48,11 @@
                                         <%= session.getAttribute("nombreUsuario")%></a> 
                                          <div class="dropdown-menu">
       <a class="dropdown-item" href="DatosPersonales.jsp">Datos Personales</a>
-      <a class="dropdown-item" href="EditarDatosPersonales.jsp">Editar Usuario</a>
+        <!--<a class="dropdown-item" href="EditarDatosPersonales.jsp">Editar Usuario</a>-->
      
 
       <div class="dropdown-divider"></div>
-      <!--<a class="dropdown-item" href="#">Salir</a>-->
-      <form name="salir" action="ServletCerrarSession" method="POST">
+       <form name="salir" action="ServletCerrarSession" method="POST">
          <input type="submit" value="Salir" class="btn btn-primary">
       </form>
       </div>
@@ -79,11 +73,11 @@
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Juego</a>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Alta</a>
-      <a class="dropdown-item" href="#">Baja</a>
+      <a class="dropdown-item" href="AltaJuego.jsp">Alta</a>
+      <a class="dropdown-item" href="BajaJuego.jsp">Baja</a>
       <a class="dropdown-item" href="#">Modificacion</a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">Lista de Juegos</a>
+      <a class="dropdown-item" href="MostrarJuegos.jsp">Lista de Juegos</a>
     </div>
   </li>
 
@@ -101,7 +95,7 @@
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Entradas</a>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Compra</a>
+      <a class="dropdown-item" href="AltaEntrada.jsp">Compra</a>
       <a class="dropdown-item" href="#">Total vendidadas</a>
       <a class="dropdown-item" href="#">Vendiadas por juego</a>
       <div class="dropdown-divider"></div>
@@ -132,7 +126,28 @@
 
 				<h3>La calesita</h3>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi inventore dolorem accusantium assumenda pariatur esse deserunt accusamus, deleniti. Molestias harum totam nulla a asperiores vero ipsa corrupti cum, consectetur eligendi!</p>
-				<img src="img/parque-atracciones.jpg" class="img-fluid" alt="Responsive image">
+				<!--<img src="img/parque-atracciones.jpg" class="img-fluid" alt="Responsive image">-->
+                                <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-interval="">
+      <img  src="img/parque-atracciones.jpg"class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item" data-interval="">
+      <img  src="img/parque.png" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="img/pulpo.png" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
 
 			</div>
 			

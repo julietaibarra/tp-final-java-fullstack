@@ -33,12 +33,11 @@
                                         <%= session.getAttribute("nombreUsuario")%></a> 
                                          <div class="dropdown-menu">
       <a class="dropdown-item" href="DatosPersonales.jsp">Datos Personales</a>
-      <a class="dropdown-item" href="EditarDatosPersonales.jsp">Editar Usuario</a>
+        <!--<a class="dropdown-item" href="EditarDatosPersonales.jsp">Editar Usuario</a>-->
      
 
       <div class="dropdown-divider"></div>
-      <!--<a class="dropdown-item" href="#">Salir</a>-->
-      <form name="salir" action="ServletCerrarSession" method="POST">
+       <form name="salir" action="ServletCerrarSession" method="POST">
          <input type="submit" value="Salir" class="btn btn-primary">
       </form>
       </div>
@@ -59,11 +58,11 @@
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Juego</a>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Alta</a>
-      <a class="dropdown-item" href="#">Baja</a>
+      <a class="dropdown-item" href="AltaJuego.jsp">Alta</a>
+      <a class="dropdown-item" href="BajaJuego.jsp">Baja</a>
       <a class="dropdown-item" href="#">Modificacion</a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">Lista de Juegos</a>
+      <a class="dropdown-item" href="MostrarJuegos.jsp">Lista de Juegos</a>
     </div>
   </li>
 
@@ -81,7 +80,7 @@
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Entradas</a>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Compra</a>
+      <a class="dropdown-item" href="AltaEntrada.jsp">Compra</a>
       <a class="dropdown-item" href="#">Total vendidadas</a>
       <a class="dropdown-item" href="#">Vendiadas por juego</a>
       <div class="dropdown-divider"></div>

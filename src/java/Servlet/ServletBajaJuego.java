@@ -6,8 +6,6 @@
 package Servlet;
 
 import Logica.Controladora;
-import Logica.Empleado;
-import Logica.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -20,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Julieta
  */
-@WebServlet(name = "ServletEdicionEmpleado", urlPatterns = {"/ServletEdicionEmpleado"})
-public class ServletEdicionEmpleado extends HttpServlet {
+@WebServlet(name = "ServletBajaJuego", urlPatterns = {"/ServletBajaJuego"})
+public class ServletBajaJuego extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,31 +33,20 @@ public class ServletEdicionEmpleado extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       
+
     }
 
-  
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Controladora control= new Controladora();
-        String nuevoNombre= request.getParameter("nombre");
-        String nuevoApellido=request.getParameter("apellido");
-        String dni= request.getParameter("dni");
-        String nuevoCargo= request.getParameter("cargo");
-//        String nuevoUsuario=request.getParameter("nombreUsuario");
-//        String nuevaContrasenia=request.getParameter("contrasenia");
-        
-        
-        Empleado empleado= control.traerEmpleado(control.getIdEmpleado(dni));
-        empleado.setNombre(nuevoNombre);
-        empleado.setApellido(nuevoApellido);
-        empleado.setCargo(nuevoCargo);
+         Controladora control=new Controladora();
+         String juego= request.getParameter("juego");
+         int idJuego=0;
+         idJuego = Integer.parseInt(juego);
+         control.eliminarJuego(idJuego);
+         response.sendRedirect("BajaConfirmacion.jsp");
        
-        control.modificarEmpleado(empleado);
-//        control.modificarUsuario(usuario);
-         response.sendRedirect("EdicionConfirmacion.jsp");
-        
     }
 
     /**

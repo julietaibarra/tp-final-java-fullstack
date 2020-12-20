@@ -4,6 +4,10 @@
     Author     : Julieta
 --%>
 
+<%@page import="Logica.Empleado"%>
+<%@page import="java.util.List"%>
+<%@page import="Logica.Horario"%>
+<%@page import="Logica.Controladora"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,12 +19,26 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" />
 <br>
 
 </head>
 <body background="img/parque.png">
 
+ <%
+    HttpSession miSession= request.getSession();
+    String usuario= (String) miSession.getAttribute("nombreUsuario");
 
+    
+    if(usuario==null){
+        response.sendRedirect("SinUsuario.jsp");
+    }else{
+        %>
 	<header>
 		<nav class="navbar navbar-dark bg-dark  navbar-expand-sm justify-content-between" style="background-color: #e3f2fd;">
 
@@ -30,8 +48,8 @@
 				<li class="nav-item dropdown">  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                         <%= session.getAttribute("nombreUsuario")%></a> 
                                          <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Datos Personales</a>
-      <a class="dropdown-item" href="#">Editar Usuario</a>
+      <a class="dropdown-item" href="DatosPersonales.jsp">Datos Personales</a>
+        <!--<a class="dropdown-item" href="EditarDatosPersonales.jsp">Editar Usuario</a>-->
      
 
       <div class="dropdown-divider"></div>
@@ -56,11 +74,11 @@
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Juego</a>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Alta</a>
-      <a class="dropdown-item" href="#">Baja</a>
+      <a class="dropdown-item" href="AltaJuego.jsp">Alta</a>
+      <a class="dropdown-item" href="BajaJuego.jsp">Baja</a>
       <a class="dropdown-item" href="#">Modificacion</a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">Lista de Juegos</a>
+      <a class="dropdown-item" href="MostrarJuegos.jsp">Lista de Juegos</a>
     </div>
   </li>
 
@@ -78,7 +96,7 @@
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Entradas</a>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Compra</a>
+      <a class="dropdown-item" href="AltaEntrada.jsp">Compra</a>
       <a class="dropdown-item" href="#">Total vendidadas</a>
       <a class="dropdown-item" href="#">Vendiadas por juego</a>
       <div class="dropdown-divider"></div>
@@ -104,17 +122,18 @@
 			</div>
 			<div class="card-body">
 				<div class="text-center">
-				<!--<image src="img/usuario.png" alt="Responsive image" class="rounded" width="100" height="102">-->
+				<image src="img/carrusel.png" alt="Responsive image" class="rounded" width="150" height="152">
 
 				</div>
 				<br>
-                                <form action="AltaJuego" method="POST" >
+                                <form action="ServletAltaJuego" method="POST" >
 
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-                                            <input type="text" class="form-control" placeholder="Nombre" name="nombre" id="nombre" 
+                                            <input type="text" class="form-control" placeholder="Nombre" name="nombre" id="nombre"
+                                                   pattern="([a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁ ÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+[0-9]+['']{0,10,0}){2,20}$"
                                                        title="El nombre no puede ser vacio "value="" required>
 
 					</div>
@@ -131,10 +150,25 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-                                            <input type="text" class="form-control" placeholder="Horario" name="horario" >
-                                            <!--no se si poner un select- option-->
+                                                                	<select name="horario" id="" class="form-control" required>
+                                             <%
+                miSession= request.getSession();
+		Controladora control = (Controladora)miSession.getAttribute("control");
 
+                List<Horario> horarios=control.traerHorarios();
+                   for (Horario horario: horarios) {
+                       
+                %>
+                  <option value="<%=horario.getId_horario()%>" name="horario" >
+                      <%=control.DateAString(horario.getHora_inicio())%>-<%=control.DateAString(horario.getHora_fin())%>, <%=horario.getDia()%> 
+                  </option>
+
+                                                              <% } %>
+							</select>
 					</div>
+                                                        
+                                                        
+                                                       
                                     <div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -144,9 +178,29 @@
                                                        title="La capacidad no puede ser vacia "value="" required>
 
 					</div>
+					  <div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<select id="framework" name="empleados[]" multiple class="form-control" required>
+                            <%                               
+                           miSession= request.getSession();
+//		Controladora control = (Controladora)miSession.getAttribute("control");
+
+                List<Empleado> empleados=control.traerEmpleados();
+                   for (Empleado empleado: empleados) {
+                       //vistas previa de los datos de los datos de los empleados
+                %>
+                     <option value="<%=empleado.getId_empleado()%>"  ><%=empleado.getNombre()%> <%= empleado.getApellido()%>, <%= empleado.getCargo()%> 
+                     </option>
+
+ <% } %>
+                                                </select>
+
+					</div>
 					
 					<div class="form-group">
-						<input type="submit" value="Login" class="btn btn-primary">
+						<input type="submit" value="Cargar al sistema" class="btn btn-primary">
 					</div>
 				</form>
 
@@ -162,5 +216,36 @@
 		</div>
 	</div>
 </div>
+    <% } %>
 </body>
+<script>
+    //scrip para poder selecionar multiples empleados
+$(document).ready(function(){
+ $('#framework').multiselect({
+  nonSelectedText: 'Selecione los empleados',
+  enableFiltering: true,
+  enableCaseInsensitiveFiltering: true,
+  buttonWidth:'400px'
+ }); 
+ 
+ $('#framework_form').on('submit', function(event){
+  event.preventDefault();
+  var form_data = $(this).serialize();
+  $.ajax({
+      //envia los datos al servlet correspondiente
+   url:"ServletAltaJuego",
+   method:"POST",
+   data:form_data,
+   success:function(data)
+   {
+    $('#framework option:selected').each(function(){
+     $(this).prop('selected', false);
+    });
+    $('#framework').multiselect('refresh');
+    alert(data);
+   }
+  });
+ });
+});
+</script>
 </html>

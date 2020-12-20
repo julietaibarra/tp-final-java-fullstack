@@ -46,6 +46,8 @@ public class Empleado implements Serializable{
         this.unUsuario = unUsuario;
     }
 
+    
+    
     public String getCargo() {
         return cargo;
     }

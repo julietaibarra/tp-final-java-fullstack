@@ -1,37 +1,43 @@
 <%-- 
-    Document   : SinUsuario
-    Created on : 16/12/2020, 19:18:17
+    Document   : AltaEmpleado
+    Created on : 15/12/2020, 11:34:20
     Author     : Julieta
 --%>
 
-<%-- 
-    Document   : Login
-    Created on : 15/12/2020, 09:45:29
-    Author     : Julieta
---%>
-
+<%@page import="Logica.Juego"%>
+<%@page import="java.util.List"%>
+<%@page import="Logica.Horario"%>
+<%@page import="Logica.Controladora"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Login Page</title>
- <meta charset="utf-8">
+	<title>Alta Empleado</title>
+   <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="js/Validacion.js"></script>
+    <!-- Bootstrap CSS -->
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <br>
 
-<br>
+
 </head>
 <body background="img/parque.png">
 
+ <%
+    HttpSession miSession= request.getSession();
+    String usuario= (String) miSession.getAttribute("nombreUsuario");
 
-<header>
+    
+    if(usuario==null){
+        response.sendRedirect("SinUsuario.jsp");
+    }else{
+        %>
+	<header>
 		<nav class="navbar navbar-dark bg-dark  navbar-expand-sm justify-content-between" style="background-color: #e3f2fd;">
 
 							<!--  <img src="img/rueda.png" width="125" height="90" class="d-inline-block align-top" alt="" loading="lazy"> loading="lazy"> -->
@@ -108,18 +114,49 @@
 	<div class="d-flex justify-content-center h-100">
 		<div class="card text-white bg-dark">
 			<div class="card-header">
-				<h1>Operacion realizada con exito</h1>
-				<h3>Se borraron los datos del empleado de la base de datos</h3>
+				<h1>Baja de  horario del sistema</h1>
+				<h3>Elija el horario a eliminar</h3>
 				
 			</div>
 			<div class="card-body">
-                          <button class="btn btn-primary" type="submit" name="Cancelar" formaction="Login.jsp">Volver a login</button>
+				<div class="text-center">
+				<!--<image src="img/usuario.png" alt="Responsive image" class="rounded" width="100" height="102">-->
+
+				</div>
+				<br>
+                                <form action="ServletBajaJuego" method="POST" >
+                                   
+                                    <select name="juego" id="">
+                                             <%
+                miSession= request.getSession();
+		Controladora control = (Controladora)miSession.getAttribute("control");
+
+                List<Juego> juegos=control.traerJuegos();
+                   for (Juego juego: juegos) {
+                       
+                %>
+                                <option value="<%=juego.getIdJuego()%>" name="juego"><%=juego.getNombre()%></option>
+
+                                    <% } %>
+			</select>
+                                           <br>
+                                        <div>
+
+                                        <div class="form-group">
+						<input type="submit" value="Eliminar" class="btn btn-primary">
+                                                <button class="btn btn-primary" type="submit" name="Cancelar" formaction="Index.jsp">Cancelar</button>
+					</div>
+                                                              
+                                     </div>
+                                   
+				</form>
 			</div>
 			<div class="card-footer">
-				
+			
 			</div>
 		</div>
 	</div>
 </div>
+  <% } %>
 </body>
 </html>
