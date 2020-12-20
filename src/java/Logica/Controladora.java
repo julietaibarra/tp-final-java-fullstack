@@ -96,10 +96,25 @@ public class Controladora {
 
       return horaCompleta;
       }
-    public static String DateAString(Date fecha){
+    public static String DateAStringHora(Date fecha){
         SimpleDateFormat formatoFecha = new SimpleDateFormat("HH:mm");
         return formatoFecha.format(fecha);
     }
+     public static String DateAStringFecha(Date fecha){
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd-MM-yyyy");
+        return formatoFecha.format(fecha);
+    }
+    
+    
+      public static String dateADia(Date fecha){
+          Date dia=new Date();
+          dia=fecha;
+          String dias[]={"domingo", "lunes", "martes", "miercoles", "jueves", "viernes", "sababado"};
+//        SimpleDateFormat formatoFecha = new SimpleDateFormat("HH:mm");
+        return dias[dia.getDay()];
+    }
+    
+    
     public void eliminarHorario(int id){
         controlPersis.eliminarHorario(id);
     }

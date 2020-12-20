@@ -96,6 +96,9 @@ public class Juego implements Serializable {
     public List<Empleado> empleadosEncargados() {
         return empleados;
     }
+    public void agregarEmpleado(Empleado empleado){
+        empleados.add(empleado);
+    }
 
     public void setEmpleados(List<Empleado> empleados) {
         this.empleados = empleados;
@@ -108,6 +111,13 @@ public class Juego implements Serializable {
     public void setEntradasVendidas(List<Entrada> entradasVendidas) {
         this.entradasVendidas = entradasVendidas;
     }
+    public void agregarEntradas(Entrada entrada){
+        entradasVendidas.add(entrada);
+    }
+    public int cantidadTotalEntradas(){
+        return entradasVendidas.size();
+    }
+
     
      public int entradasVendidasEnElDia(Date fecha) {
          int entradasDelDia=0;
