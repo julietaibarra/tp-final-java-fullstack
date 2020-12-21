@@ -33,14 +33,15 @@
 			 </nav>
 	</header>
 	<br>
-
+	
 <div class="container">
 
 	<div class="d-flex justify-content-center h-100">
 		<div class="card text-white bg-dark">
 			<div class="card-header">
 				<h1>ERROR</h1>
-				<h3>El DNI ya se encuentra en la base de datos</h3>
+				<h3>No se pudo realizar la compra</h3>
+                                <p>Verifique que la hora de la entrada corresponda al horario del juego o que la su edad sea mayor a la edad minima</p>
 				
 			</div>
                     <form action="Login.jsp" method="POST">

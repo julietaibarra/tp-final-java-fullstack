@@ -114,7 +114,7 @@
 			 </nav>
 	</header>	<br>
 	<!--Custom styles-->
-	<link rel="stylesheet" type="text/css" href="styles.css">
+
 <div class="container">
 
 	<div class="d-flex justify-content-center h-100">
@@ -136,7 +136,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-                                            <input type="time" name="horaInicio" value="10:00"  id="horaInicio">
+                                            <input type="time" name="horaInicio"  id="horaInicio">
 
 					</div>
                                       <P>Hora final:</P>
@@ -144,7 +144,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-                                            <input type="time" name="horaFinal" value="11:00" id="horaFinal">
+                                            <input type="time" name="horaFinal"  id="horaFinal">
                                           
 
 					</div>
@@ -155,16 +155,16 @@
 						</div>
                                            <select name="dia" id=""  title="El  dia no puede ser vacio" required>
 							<!--<option disabled selected value>>Seleccione un día</option>-->
-                                                           <option value="jueves">Jueves</option>
-							  <option value="viernes">Viernes</option>
-							  <option value="sabado">Sábado</option>
-							  <option value="domingo">Domingo</option>
+                                                           <option value="jueves">jueves</option>
+							  <option value="viernes">viernes</option>
+							  <option value="sabado">sabado</option>
+							  <option value="domingo">domingo</option>
 							  
 						</select>
 					</div>
                                  
 					<div class="form-group">
-						<input type="submit" value="Login" onclick="controlHorario()" class="btn btn-primary">
+						<input type="submit" value="Cargar"  class="btn btn-primary">
 					</div>
 				</form>
 			</div>
@@ -174,5 +174,8 @@
 		</div>
 	</div>
 </div>
+          <% }
+          %>
 </body>
+
 </html>

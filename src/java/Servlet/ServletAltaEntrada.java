@@ -57,23 +57,32 @@ public class ServletAltaEntrada extends HttpServlet {
        juego=control.traerJuego(idJuego);
        String hora= request.getParameter("hora");
        String fecha=request.getParameter("fecha");
+       Date horaDate=new Date();
+       Date fechaDate=new Date();
+       String dia="";
+       
         try { 
-            Date horaDate=control.convertirHoraStringADate(hora);
-            Date fechaDate=control.convertirHoraStringADate(fecha);
-            String dia=control.dateADia(fechaDate);
-             Horario horarioDelJuego=juego.getHorario();
+            horaDate=Controladora.convertirHoraStringADate(hora);
+           fechaDate=Controladora.convertirHoraStringADate(fecha);
+           dia=Controladora.dateADia(fechaDate);
+  
+            
+        } catch (ParseException ex) {
+            Logger.getLogger(ServletAltaEntrada.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+        Horario horarioDelJuego=juego.getHorario();
        Date horaInicio=horarioDelJuego.getHora_inicio();
        Date horaFin=horarioDelJuego.getHora_fin();
-        if (horaInicio.getHours()<horaDate.getHours() && 
-            horaFin.getHours()>horaDate.getHours() &&
-             horarioDelJuego.getDia().equals(dia)){
-            
-            if (edad>juego.getEdadMinima()) {
+       String diaJuego=horarioDelJuego.getDia();
+       
+         if (horaInicio.getHours()<=horaDate.getHours()&& 
+            horaFin.getHours()>horaDate.getHours()&&
+            diaJuego.equalsIgnoreCase(dia)) {
                 Cliente cliente= new Cliente();
                 cliente.setNombre(nombre);
                 cliente.setApellido(apellido);
                 cliente.setEdad(edad);
-                
+
                 Entrada entrada=new Entrada();
                 entrada.setCliente(cliente);
                 entrada.setFecha(fechaDate);
@@ -81,22 +90,14 @@ public class ServletAltaEntrada extends HttpServlet {
                 control.crearCliente(cliente);
                 control.crearEntrada(entrada);
                 juego.agregarEntradas(entrada);
+                
                  response.sendRedirect("Confirmacion.jsp");
             }else{
-                ///Falta terminar
+                   response.sendRedirect("ErrorDecompra.jsp");
+                   System.out.println(dia);
             }
-                
- //falta implementar
+
         }
-      
-            
-        } catch (ParseException ex) {
-            Logger.getLogger(ServletAltaEntrada.class.getName()).log(Level.SEVERE, null, ex);
-        }
-     
-       
-    
-    }
 
     /**
      * Returns a short description of the servlet.

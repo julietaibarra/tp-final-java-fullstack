@@ -109,7 +109,7 @@ public class Controladora {
       public static String dateADia(Date fecha){
           Date dia=new Date();
           dia=fecha;
-          String dias[]={"domingo", "lunes", "martes", "miercoles", "jueves", "viernes", "sababado"};
+          String dias[]={"domingo", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado"};
 //        SimpleDateFormat formatoFecha = new SimpleDateFormat("HH:mm");
         return dias[dia.getDay()];
     }

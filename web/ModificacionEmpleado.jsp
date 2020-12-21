@@ -103,7 +103,7 @@
 	</header>
 	<br>
 	
-	<link rel="stylesheet" type="text/css" href="styles.css">
+
 <div class="container">
 
 	<div class="d-flex justify-content-center h-100">

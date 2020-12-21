@@ -107,7 +107,7 @@
 	</header>
 	<br>
 	<!--Custom styles-->
-	<link rel="stylesheet" type="text/css" href="styles.css">
+
 <div class="container">
 
 	<div class="d-flex justify-content-center h-100">
@@ -133,7 +133,7 @@
                    for (Horario horario: horarios) {
                        
                 %>
-                                                                <option value="<%=horario.getId_horario()%>" name="horario" ><%=control.DateAStringHora(horario.getHora_inicio())%>-<%=control.DateAString(horario.getHora_fin())%>, <%=horario.getDia()%> </option>
+                                                                <option value="<%=horario.getId_horario()%>" name="horario" ><%=control.DateAStringHora(horario.getHora_inicio())%>-<%=control.DateAStringHora(horario.getHora_fin())%>, <%=horario.getDia()%> </option>
 
                                                               <% } %>
 							</select>
