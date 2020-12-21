@@ -73,21 +73,7 @@ public class Horario implements Serializable {
         this.dia = dia;
     }
 
-    public Date getInicio() {
-        return hora_inicio;
-    }
-
-    public void setInicio(Date inicio) {
-        this.hora_inicio = inicio;
-    }
-
-    public Date getFin() {
-        return hora_fin;
-    }
-
-    public void setFin(Date fin) {
-        this.hora_fin = fin;
-    }
+    
  
     
 }

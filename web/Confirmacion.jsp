@@ -29,10 +29,10 @@
 							<!--  <img src="img/rueda.png" width="125" height="90" class="d-inline-block align-top" alt="" loading="lazy"> loading="lazy"> -->
 						 <ul class="navbar-nav">
                                           
-				<li class="nav-item dropdown">  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <%= session.getAttribute("nombreUsuario")%></a> 
+<!--				<li class="nav-item dropdown">  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <%= session.getAttribute("nombreUsuario")%></a> -->
                                          <div class="dropdown-menu">
-      <a class="dropdown-item" href="DatosPersonales.jsp">Datos Personales</a>
+      <!--<a class="dropdown-item" href="DatosPersonales.jsp">Datos Personales</a>-->
         <!--<a class="dropdown-item" href="EditarDatosPersonales.jsp">Editar Usuario</a>-->
      
 
